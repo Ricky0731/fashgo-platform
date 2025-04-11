@@ -138,11 +138,13 @@ const ProductDetail = () => {
       {/* Product Images */}
       <div className="relative">
         <div className="h-80 bg-light-gray">
-          <img
-            src={product.imageUrl}
-            alt={product.name}
-            className="h-full w-full object-cover"
-          />
+          {product && (
+            <img
+              src={product.imageUrl}
+              alt={product.name}
+              className="h-full w-full object-cover"
+            />
+          )}
         </div>
         <div className="absolute bottom-4 right-4 flex space-x-1">
           {images.map((_, index) => (
@@ -157,38 +159,42 @@ const ProductDetail = () => {
       
       {/* Product Info */}
       <div className="p-4">
-        <div className="flex justify-between items-start mb-2">
-          <h2 className="text-xl font-semibold font-poppins">{product.name}</h2>
-          <div className="flex items-center text-sm">
-            <i className="fas fa-star text-accent mr-1"></i>
-            <span>{product.rating.toFixed(1)}</span>
-            <span className="text-xs text-mid-gray ml-1">({product.reviewCount})</span>
-          </div>
-        </div>
-        
-        <p className="text-sm text-mid-gray mb-4">
-          {product.description}
-        </p>
-        
-        {/* Price Section */}
-        <div className="bg-light-gray p-3 rounded-lg mb-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="text-xs text-mid-gray">MRP</p>
-              <p className="text-lg line-through text-mid-gray">{formatPrice(product.originalPrice)}</p>
+        {product && (
+          <>
+            <div className="flex justify-between items-start mb-2">
+              <h2 className="text-xl font-semibold font-poppins">{product.name}</h2>
+              <div className="flex items-center text-sm">
+                <i className="fas fa-star text-accent mr-1"></i>
+                <span>{product.rating.toFixed(1)}</span>
+                <span className="text-xs text-mid-gray ml-1">({product.reviewCount})</span>
+              </div>
             </div>
-            <div>
-              <p className="text-xs text-success">Discount</p>
-              <p className="text-lg text-success">{product.discountPercentage}%</p>
+            
+            <p className="text-sm text-mid-gray mb-4">
+              {product.description}
+            </p>
+            
+            {/* Price Section */}
+            <div className="bg-light-gray p-3 rounded-lg mb-4">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-xs text-mid-gray">MRP</p>
+                  <p className="text-lg line-through text-mid-gray">{formatPrice(product.originalPrice)}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-success">Discount</p>
+                  <p className="text-lg text-success">{product.discountPercentage}%</p>
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-primary">Final Price</p>
+                  <p className="text-xl font-bold text-primary">
+                    {formatPrice(negotiatedPrice || product.finalPrice)}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-xs font-medium text-primary">Final Price</p>
-              <p className="text-xl font-bold text-primary">
-                {formatPrice(negotiatedPrice || product.finalPrice)}
-              </p>
-            </div>
-          </div>
-        </div>
+          </>
+        )}
         
         {/* Size Selection */}
         <div className="mb-4">
@@ -211,21 +217,23 @@ const ProductDetail = () => {
         </div>
         
         {/* Store Info */}
-        <div className="flex items-center justify-between p-3 bg-light-gray rounded-lg mb-4">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
-              <i className="fas fa-store text-primary"></i>
+        {product.store && (
+          <div className="flex items-center justify-between p-3 bg-light-gray rounded-lg mb-4">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
+                <i className="fas fa-store text-primary"></i>
+              </div>
+              <div>
+                <h3 className="text-sm font-medium">{product.store.name}</h3>
+                <p className="text-xs text-mid-gray">{formatDistance(product.store.distance || 0)} away</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-sm font-medium">{product.store.name}</h3>
-              <p className="text-xs text-mid-gray">{formatDistance(product.store.distance || 0)} away</p>
+            <div className="text-xs text-success">
+              <i className="fas fa-clock mr-1"></i>
+              <span>{product.store.deliveryTime || 30} min delivery</span>
             </div>
           </div>
-          <div className="text-xs text-success">
-            <i className="fas fa-clock mr-1"></i>
-            <span>{product.store.deliveryTime || 30} min delivery</span>
-          </div>
-        </div>
+        )}
         
         {/* Negotiate Price */}
         <div className="mb-6">
@@ -259,14 +267,16 @@ const ProductDetail = () => {
       </div>
       
       {/* Negotiation Modal */}
-      <NegotiationModal
-        isOpen={showNegotiation}
-        onClose={() => setShowNegotiation(false)}
-        productId={productId}
-        originalPrice={product.originalPrice}
-        finalPrice={product.finalPrice}
-        onNegotiationComplete={handleNegotiationComplete}
-      />
+      {product && (
+        <NegotiationModal
+          isOpen={showNegotiation}
+          onClose={() => setShowNegotiation(false)}
+          productId={productId}
+          originalPrice={product.originalPrice}
+          finalPrice={product.finalPrice}
+          onNegotiationComplete={handleNegotiationComplete}
+        />
+      )}
     </>
   );
 };
