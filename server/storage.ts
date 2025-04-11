@@ -166,6 +166,8 @@ export class MemStorage implements IStorage {
     const accessories = this.createCategory({ name: "Accessories", icon: "fa-gem" });
     const beauty = this.createCategory({ name: "Beauty", icon: "fa-spray-can" });
     const tailoring = this.createCategory({ name: "Tailoring", icon: "fa-cut" });
+    const menswear = this.createCategory({ name: "Men's Fashion", icon: "fa-male" });
+    const womenswear = this.createCategory({ name: "Women's Fashion", icon: "fa-female" });
 
     // Create stores
     const store1 = this.createStore({
@@ -329,6 +331,161 @@ export class MemStorage implements IStorage {
       rating: 4.6,
       reviewCount: 22,
       imageUrl: "https://images.unsplash.com/photo-1623609163859-ca93d401e835"
+    });
+
+    // Men's formal shirts
+    this.createProduct({
+      storeId: store1.id,
+      categoryId: menswear.id,
+      name: "Crisp White Formal Shirt",
+      description: "Premium cotton white formal shirt for a polished look",
+      originalPrice: 1799,
+      discountPercentage: 15,
+      finalPrice: 1529,
+      minAcceptablePrice: 1299,
+      stock: 25,
+      rating: 4.7,
+      reviewCount: 48,
+      imageUrl: "https://images.unsplash.com/photo-1603252109303-2751441dd157"
+    });
+
+    this.createProduct({
+      storeId: store2.id,
+      categoryId: menswear.id,
+      name: "Blue Striped Formal Shirt",
+      description: "Elegant blue striped formal shirt for office and special occasions",
+      originalPrice: 1899,
+      discountPercentage: 10,
+      finalPrice: 1709,
+      minAcceptablePrice: 1499,
+      stock: 18,
+      rating: 4.5,
+      reviewCount: 32,
+      imageUrl: "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e"
+    });
+
+    // Men's formal pants
+    this.createProduct({
+      storeId: store3.id,
+      categoryId: menswear.id,
+      name: "Classic Black Trousers",
+      description: "Tailored black formal trousers with perfect fit and comfort",
+      originalPrice: 2499,
+      discountPercentage: 20,
+      finalPrice: 1999,
+      minAcceptablePrice: 1799,
+      stock: 15,
+      rating: 4.8,
+      reviewCount: 37,
+      imageUrl: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a"
+    });
+
+    this.createProduct({
+      storeId: store1.id,
+      categoryId: menswear.id,
+      name: "Navy Blue Slim Fit Pants",
+      description: "Modern navy blue slim fit formal pants for a stylish look",
+      originalPrice: 2299,
+      discountPercentage: 15,
+      finalPrice: 1954,
+      minAcceptablePrice: 1699,
+      stock: 12,
+      rating: 4.6,
+      reviewCount: 29,
+      imageUrl: "https://images.unsplash.com/photo-1584865288642-42078afe6942"
+    });
+
+    // Women's accessories
+    this.createProduct({
+      storeId: store2.id,
+      categoryId: womenswear.id,
+      name: "Pearl Necklace Set",
+      description: "Elegant pearl necklace and earring set for special occasions",
+      originalPrice: 3499,
+      discountPercentage: 10,
+      finalPrice: 3149,
+      minAcceptablePrice: 2899,
+      stock: 8,
+      rating: 4.9,
+      reviewCount: 26,
+      imageUrl: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f"
+    });
+
+    this.createProduct({
+      storeId: store3.id,
+      categoryId: womenswear.id,
+      name: "Designer Silk Scarf",
+      description: "Luxury silk scarf with beautiful prints for a touch of elegance",
+      originalPrice: 1999,
+      discountPercentage: 5,
+      finalPrice: 1899,
+      minAcceptablePrice: 1699,
+      stock: 10,
+      rating: 4.7,
+      reviewCount: 18,
+      imageUrl: "https://images.unsplash.com/photo-1584917865442-de89df76afd3"
+    });
+
+    // Unisex sneakers
+    this.createProduct({
+      storeId: store1.id,
+      categoryId: footwear.id,
+      name: "Urban White Sneakers",
+      description: "Trendy white sneakers for casual everyday wear",
+      originalPrice: 2499,
+      discountPercentage: 20,
+      finalPrice: 1999,
+      minAcceptablePrice: 1799,
+      stock: 20,
+      rating: 4.6,
+      reviewCount: 52,
+      imageUrl: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77"
+    });
+
+    this.createProduct({
+      storeId: store2.id,
+      categoryId: footwear.id,
+      name: "Sports Performance Sneakers",
+      description: "High-performance sports sneakers with advanced comfort technology",
+      originalPrice: 3499,
+      discountPercentage: 15,
+      finalPrice: 2974,
+      minAcceptablePrice: 2699,
+      stock: 15,
+      rating: 4.8,
+      reviewCount: 64,
+      imageUrl: "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+    });
+
+    // Men's accessories
+    this.createProduct({
+      storeId: store3.id,
+      categoryId: accessories.id,
+      name: "Classic Leather Wallet",
+      description: "Premium genuine leather wallet with multiple compartments",
+      originalPrice: 1299,
+      discountPercentage: 10,
+      finalPrice: 1169,
+      minAcceptablePrice: 999,
+      stock: 25,
+      rating: 4.5,
+      reviewCount: 38,
+      imageUrl: "https://images.unsplash.com/photo-1627123424574-724758594e93"
+    });
+
+    this.createProduct({
+      storeId: store1.id,
+      categoryId: accessories.id,
+      name: "Stainless Steel Watch",
+      description: "Elegant stainless steel watch for a sophisticated look",
+      originalPrice: 4999,
+      discountPercentage: 20,
+      finalPrice: 3999,
+      minAcceptablePrice: 3599,
+      stock: 8,
+      rating: 4.8,
+      reviewCount: 45,
+      imageUrl: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6"
     });
 
     // Create services

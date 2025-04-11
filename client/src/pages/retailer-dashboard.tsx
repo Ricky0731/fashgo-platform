@@ -137,7 +137,7 @@ const RetailerDashboard = () => {
       {/* Sidebar */}
       <div className="w-64 bg-white h-screen shadow-sm p-4 fixed left-0 top-0">
         <div className="flex items-center mb-8">
-          <h1 className="text-2xl font-bold font-playfair text-primary">Fashgo</h1>
+          <h1 className="text-2xl font-bold font-playfair text-primary">FashGo</h1>
           <span className="ml-2 px-2 py-0.5 bg-secondary text-white text-xs rounded-md">Retailer</span>
         </div>
         
@@ -468,7 +468,7 @@ const RetailerDashboard = () => {
                 >
                   {deliveryMethod === "fashgo" && <div className="w-3 h-3 rounded-full bg-primary"></div>}
                 </div>
-                <span className="text-sm">Fashgo Delivery</span>
+                <span className="text-sm">FashGo Delivery</span>
               </div>
               <div className="flex items-center">
                 <div 

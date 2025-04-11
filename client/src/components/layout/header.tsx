@@ -40,7 +40,7 @@ const Header = ({
           {title ? (
             <h1 className="text-lg font-semibold font-poppins">{title}</h1>
           ) : (
-            <h1 className="text-2xl font-bold font-playfair text-primary">Fashgo</h1>
+            <h1 className="text-2xl font-bold font-playfair text-primary">FashGo</h1>
           )}
         </div>
         
