@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F9FA;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium text-dark;
+  }
+}
+
+/* Custom font classes */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom colors */
+:root {
+  --primary: 347 100% 70%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 214 36% 62%;
+  --secondary-foreground: 0 0% 100%;
+  
+  --accent: 43 100% 58%;
+  --accent-foreground: 0 0% 0%;
+  
+  --success: 134 61% 41%;
+  --success-foreground: 0 0% 100%;
+  
+  --error: 354 70% 54%;
+  --error-foreground: 0 0% 100%;
+  
+  --warning: 45 100% 51%;
+  --warning-foreground: 0 0% 0%;
+  
+  --dark: 210 11% 15%;
+  --dark-foreground: 0 0% 100%;
+  
+  --light-gray: 210 17% 98%;
+  --light-gray-foreground: 0 0% 0%;
+  
+  --mid-gray: 210 9% 45%;
+  --mid-gray-foreground: 0 0% 100%;
+}
+
+/* Pulse animation for delivery status */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s infinite;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.screen-transition {
+  transition: all 0.3s ease-in-out;
+}
